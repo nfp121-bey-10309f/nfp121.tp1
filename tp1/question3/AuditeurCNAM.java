@@ -27,6 +27,18 @@ public class AuditeurCNAM {
      *            sur la carte d'inscription, près de la photo
      */
     public AuditeurCNAM(String nom, String prenom, String matricule) {
+        if (nom == null) 
+        {System.out.println("le nom est obligatoire"); 
+        return;}
+        
+        if (prenom == null) 
+        {System.out.println("prenom est obligatoire");
+        return;}
+        
+        if (matricule == null) 
+        {System.out.println("prenom est obligatoire"); 
+        return;}
+        
         this.nom = nom;
         this.prenom = prenom;
         this.matricule = matricule;
