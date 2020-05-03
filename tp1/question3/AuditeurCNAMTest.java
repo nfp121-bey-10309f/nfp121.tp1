@@ -3,7 +3,7 @@ package question3;
 /**
  * Classe-test AuditeurCNAMTest.
  * 
- * @author (Mohamed SABRA)
+ * @author (MOHAMED SABRA)
  * @version (1.0)
  * 
  *          Les classes-test sont documentées ici :
@@ -24,6 +24,12 @@ package question3;
  *          engagements, et suivi d'un appel à tearDown(), qui les détruit.
  */
 public class AuditeurCNAMTest extends junit.framework.TestCase {
+    private question3.AuditeurCNAM auditeur1;
+    private question3.AuditeurCNAM auditeur2;
+
+    
+    
+
     // Définissez ici les variables d'instance nécessaires à vos engagements;
     // Vous pouvez également les saisir automatiquement du présentoir
     // à l'aide du menu contextuel "Présentoir --> Engagements".
@@ -43,7 +49,8 @@ public class AuditeurCNAMTest extends junit.framework.TestCase {
      */
     protected void setUp() // throws java.lang.Exception
     {
-        // Initialisez ici vos engagements
+        auditeur1 = new question3.AuditeurCNAM("mohamèd", "Sabrà", "10309j");
+        auditeur2 = new question3.AuditeurCNAM("EL KASSAR", "lèàô", "10309e");
     }
 
     /**
@@ -54,6 +61,10 @@ public class AuditeurCNAMTest extends junit.framework.TestCase {
     protected void tearDown() // throws java.lang.Exception
     {
         // Libérez ici les ressources engagées par setUp()
+        auditeur1 = null;
+        assertNull(auditeur1);
+        auditeur2 = null;
+        assertNull(auditeur2);
     }
 
     /*
@@ -63,6 +74,12 @@ public class AuditeurCNAMTest extends junit.framework.TestCase {
      * "test". Vous pouvez ébaucher le corps grace au menu contextuel
      * "Enregistrer une méthode de test".
      */
+
+    /** Un test de la méthode toString() with Fixture used. */
+    public void test_toString_Fixture() {
+        assertEquals("mohamèd Sabrà login : mohame_s", auditeur1.toString());
+        assertEquals("EL KASSAR lèàô login : el_kas_l", auditeur2.toString());
+    }
 
     /** Un test de la méthode toString(). */
     public void test_toString() {
