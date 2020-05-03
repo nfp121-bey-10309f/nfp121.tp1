@@ -77,7 +77,20 @@ public class AuditeurCNAM {
     }
     
     
-    public String login() {  
+    public String login() { 
+        
+        if (nom == null) 
+        {System.out.println("le nom est obligatoire"); 
+        return null;}
+        
+         if (prenom == null) 
+        {System.out.println("prenom est obligatoire");
+        return null;}
+        
+        if (matricule == null) 
+        {System.out.println("prenom est obligatoire"); 
+        return null;}
+        
         //composition + lowercase
         int position = 0;
         if (nom.length() >= 6) position = 6;
