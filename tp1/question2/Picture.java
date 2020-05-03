@@ -20,6 +20,7 @@ public class Picture {
     private Square window;
     private Triangle roof;
     private Circle sun;
+    private Circle sun2;
 
     /**
      * Constructor for objects of class Picture
@@ -50,11 +51,20 @@ public class Picture {
         roof.makeVisible();
 
         sun = new Circle();
-        sun.changeColor("yellow");
+        sun.changeColor("blue");
         sun.moveHorizontal(180);
         sun.moveVertical(-10);
         sun.changeSize(60);
         sun.makeVisible();
+        
+        sun2 = new Circle();
+        sun2.changeColor("yellow");
+        sun2.moveHorizontal(7); //180
+        sun2.moveVertical(-10);
+        sun2.changeSize(60);
+        sun2.makeVisible();
+        //sun.slowMoveVertical(200) to be done separately with condition fixed Earth
+
     }
 
     /**
@@ -82,5 +92,22 @@ public class Picture {
             sun.changeColor("yellow");
         }
     }
+    
+    /**
+     * Sunset method
+     */
+    public void sunset(){
+        
+        int x = sun2.getXpos();
+        int y = sun2.getYpos();
+        int currentPos = sun.getYpos();
+        //Terre fixe means Yellow sun not moving
+       while(sun2.getXpos() == x && sun2.getYpos() == y){ 
+           if (sun.getYpos() == currentPos + 200) break;
+        sun.slowMoveVertical(200);
+        } 
+        
+    }
+    
 
 }

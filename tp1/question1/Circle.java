@@ -28,6 +28,15 @@ public class Circle {
         isVisible = false;
     }
 
+    public int getXpos(){
+    return xPosition;
+    }
+    
+    public int getYpos(){
+    return yPosition;
+    }
+   
+    
     /**
      * Make this circle visible. If it was already visible, do nothing.
      */

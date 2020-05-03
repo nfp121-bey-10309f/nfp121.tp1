@@ -4,7 +4,7 @@ package question3;
  * NFP121 TpIntroduction, usage de BlueJ et du "Submitter".
  * 
  * @version septembre 2009
- * @author à compléter
+ * @author [Beyrouth] Mohamed SABRA 10309 f
  * @see java.lang.String, java.lang.Math
  */
 public class AuditeurCNAM {
@@ -44,8 +44,43 @@ public class AuditeurCNAM {
      * @return le login du Cnam simplifié, sans les adaptations dues aux
      *         homonymes...
      */
-    public String login() {
-        return "";// à compléter
+    
+    /** methode translate pour enlever les characteres accentues **/
+    private static String translate(String src) {
+        StringBuffer result = new StringBuffer();
+        if(src!=null && src.length()!=0) {
+            int index = -1;
+            char c = (char)0;
+            String chars= "àâäéèêëîïôöùûüç";
+            String replace= "aaaeeeeiioouuuc";
+            for(int i=0; i<src.length(); i++) {
+                c = src.charAt(i);
+                if( (index=chars.indexOf(c))!=-1 )
+                    result.append(replace.charAt(index));
+                else
+                    result.append(c);
+            }
+        }
+        return result.toString();
+    }
+    
+    
+    public String login() {  
+        //composition + lowercase
+        int position = 0;
+        if (nom.length() >= 6) position = 6;
+        if (nom.length() < 6) position = nom.length();
+        
+        String s1 = nom.toLowerCase().substring(0,position) + "_" + prenom.toLowerCase().substring(0,1); 
+        
+        //remplacement des traits d'union
+        String replaceS1 = s1.replaceAll("-","_");
+        
+        //remplacement des espaces por le test unitaire avec particule
+        replaceS1 = replaceS1.replaceAll(" ","_");
+        
+        //remplacement des characteres accentues
+        return translate(replaceS1); 
     }
 
     /**
@@ -54,7 +89,7 @@ public class AuditeurCNAM {
      * @return son nom
      */
     public String nom() {
-        return null;// à compléter
+        return this.nom; //ou sans this ca marche
     }
 
     /**
@@ -63,7 +98,7 @@ public class AuditeurCNAM {
      * @return son prénom
      */
     public String prenom() {
-        return null;// à compléter
+        return this.prenom; //ou sans this ca marche
     }
 
     /**
@@ -72,7 +107,7 @@ public class AuditeurCNAM {
      * @return son matricule
      */
     public String matricule() {
-        return null;// à compléter
+        return this.matricule; //ou sans this ca marche
     }
 
     /**
